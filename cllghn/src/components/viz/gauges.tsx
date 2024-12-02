@@ -54,6 +54,29 @@ const GaugeChart = ({ value, fillColor, min = 0, max = 100, size = 200, label = 
                 };
             });
 
+        // Add tick marks inside the foreground arc
+        const tickData = d3.range(min, max + 1, 10); // Generate tick values
+        const tickGroup = svg
+            .append('g')
+            .attr('transform', `translate(${width / 2}, ${height})`);
+
+        tickData.forEach((tickValue) => {
+            const angle = ((tickValue - min) / (max - min)) * Math.PI - Math.PI / 2;
+            const x1 = Math.cos(angle) * (innerRadius + 5); // Place ticks inside the foreground arc
+            const y1 = Math.sin(angle) * (innerRadius + 5);
+            const x2 = Math.cos(angle) * (innerRadius + 15); // Longer ticks inside
+            const y2 = Math.sin(angle) * (innerRadius + 15);
+
+            tickGroup
+                .append('line')
+                .attr('x1', x1)
+                .attr('y1', y1)
+                .attr('x2', x2)
+                .attr('y2', y2)
+                .attr('stroke', '#fffff7') // Tick color
+                .attr('stroke-width', 2);
+        });
+
         // Add text for value with animation
         const textGroup = svg
             .append('g')

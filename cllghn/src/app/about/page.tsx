@@ -79,28 +79,126 @@ export default function About() {
                 </div>
             </div>
 
-            <div className="flex flex-col pb-20">
+            <div className="flex flex-col">
                 <span className='flex justify-center'>
                     <h2 className='text-6xl fancy-header row text-center pb-5'>
                         SKILLS
                     </h2>
                     <a href="#footnote-1">[1]</a>
                 </span>
-                <div className='flex py-5'>
-                    <div className="flex basis-1/4 pb-5">
-                        <h2 className='text-center text-2xl regular-header'>
-                            Programming Languages
-                        </h2>
+                <div className='flex py-5 sm:flex-col md:flex-col lg:flex-row space-x-2'>
+                    <div className="flex basis-1/5 pb-5">
+                        <span className='flex justify-center'>
+                            <h2 className='text-left text-2xl regular-header'>
+                                Programming Languages
+                            </h2>
+                        </span>
                     </div>
-                    <div className="flex sm:flex-col md:flex-col lg:flex-row basis-3/4 pb-5 space-x-4">
+                    <div className='flex basis-2/5 pb-5 space-x-4'>
                         <GaugeChart value={80} label={'JS'} fillColor={'#a6cee3'} />
                         <GaugeChart value={90} label={'Python'} fillColor={'#1f78b4'} />
-                        <GaugeChart value={99} label={'R'} fillColor={'#b2df8a'} />
+                    </div>
+                    <div className='flex basis-2/5 pb-5 space-x-4'>
+                        <GaugeChart value={95} label={'R'} fillColor={'#b2df8a'} />
                         <GaugeChart value={85} label={'SQL'} fillColor={'#33a02c'} />
                     </div>
                 </div>
+                <div className='flex py-5 sm:flex-col md:flex-col lg:flex-row space-x-2'>
+                    <div className="flex basis-1/5 pb-5">
+                        <span className='flex justify-center'>
+                            <h2 className='text-left text-2xl regular-header'>
+                                Data Science
+                            </h2>
+                        </span>
+                    </div>
+                    <div className='basis-4/5 pb-5'>
+                        <div className='pb-2'>
+                            <h3 className='text-left text-xl regular-header'>
+                                Data Wrangling
+                            </h3>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut accumsan mi quis mauris faucibus, non tristique eros scelerisque. Nunc egestas magna ac tortor elementum tempor. Nunc cursus sodales nibh, ut vestibulum est hendrerit ut. Aliquam vel odio at diam scelerisque lacinia. Cras venenatis orci lacus, et feugiat velit interdum nec. Mauris id risus ac elit auctor porta non id lacus. Nullam auctor libero ut nulla accumsan vulputate. Aliquam semper in ex in feugiat. In hac habitasse platea dictumst. Fusce sit amet porttitor eros.
+                            </p>
+                        </div>
+                        <div className='pb-2'>
+                            <h3 className='text-left text-xl regular-header'>
+                                Database Management
+                            </h3>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut accumsan mi quis mauris faucibus, non tristique eros scelerisque. Nunc egestas magna ac tortor elementum tempor. Nunc cursus sodales nibh, ut vestibulum est hendrerit ut. Aliquam vel odio at diam scelerisque lacinia. Cras venenatis orci lacus, et feugiat velit interdum nec. Mauris id risus ac elit auctor porta non id lacus. Nullam auctor libero ut nulla accumsan vulputate. Aliquam semper in ex in feugiat. In hac habitasse platea dictumst. Fusce sit amet porttitor eros.
+                            </p>
+                        </div>
+                        <div className='pb-2'>
+                            <h3 className='text-left text-xl regular-header'>
+                                Data Visualization
+                            </h3>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut accumsan mi quis mauris faucibus, non tristique eros scelerisque. Nunc egestas magna ac tortor elementum tempor. Nunc cursus sodales nibh, ut vestibulum est hendrerit ut. Aliquam vel odio at diam scelerisque lacinia. Cras venenatis orci lacus, et feugiat velit interdum nec. Mauris id risus ac elit auctor porta non id lacus. Nullam auctor libero ut nulla accumsan vulputate. Aliquam semper in ex in feugiat. In hac habitasse platea dictumst. Fusce sit amet porttitor eros.
+                            </p>
+                        </div>
+                        <div className='pb-2'>
+                            <h3 className='text-left text-xl regular-header'>
+                                Statistics
+                            </h3>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut accumsan mi quis mauris faucibus, non tristique eros scelerisque. Nunc egestas magna ac tortor elementum tempor. Nunc cursus sodales nibh, ut vestibulum est hendrerit ut. Aliquam vel odio at diam scelerisque lacinia. Cras venenatis orci lacus, et feugiat velit interdum nec. Mauris id risus ac elit auctor porta non id lacus. Nullam auctor libero ut nulla accumsan vulputate. Aliquam semper in ex in feugiat. In hac habitasse platea dictumst. Fusce sit amet porttitor eros.
+                            </p>
+                        </div>
+                        <div className='pb-2'>
+                            <h3 className='text-left text-xl regular-header'>
+                                Machine Learning
+                            </h3>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut accumsan mi quis mauris faucibus, non tristique eros scelerisque. Nunc egestas magna ac tortor elementum tempor. Nunc cursus sodales nibh, ut vestibulum est hendrerit ut. Aliquam vel odio at diam scelerisque lacinia. Cras venenatis orci lacus, et feugiat velit interdum nec. Mauris id risus ac elit auctor porta non id lacus. Nullam auctor libero ut nulla accumsan vulputate. Aliquam semper in ex in feugiat. In hac habitasse platea dictumst. Fusce sit amet porttitor eros.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div className='flex py-5 sm:flex-col md:flex-col lg:flex-row space-x-2'>
+                    <div className="flex basis-1/5 pb-5">
+                        <span className='flex justify-center'>
+                            <h2 className='text-left text-2xl regular-header'>
+                                Software Development
+                            </h2>
+                        </span>
+                    </div>
+                    <div className='basis-4/5 pb-5'>
+                        <div className='pb-2'>
+                            <h3 className='text-left text-xl regular-header'>
+                                Front-End Development
+                            </h3>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut accumsan mi quis mauris faucibus, non tristique eros scelerisque. Nunc egestas magna ac tortor elementum tempor. Nunc cursus sodales nibh, ut vestibulum est hendrerit ut. Aliquam vel odio at diam scelerisque lacinia. Cras venenatis orci lacus, et feugiat velit interdum nec. Mauris id risus ac elit auctor porta non id lacus. Nullam auctor libero ut nulla accumsan vulputate. Aliquam semper in ex in feugiat. In hac habitasse platea dictumst. Fusce sit amet porttitor eros.
+                            </p>
+                        </div>
+                        <div className='pb-2'>
+                            <h3 className='text-left text-xl regular-header'>
+                                Back-End Development
+                            </h3>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut accumsan mi quis mauris faucibus, non tristique eros scelerisque. Nunc egestas magna ac tortor elementum tempor. Nunc cursus sodales nibh, ut vestibulum est hendrerit ut. Aliquam vel odio at diam scelerisque lacinia. Cras venenatis orci lacus, et feugiat velit interdum nec. Mauris id risus ac elit auctor porta non id lacus. Nullam auctor libero ut nulla accumsan vulputate. Aliquam semper in ex in feugiat. In hac habitasse platea dictumst. Fusce sit amet porttitor eros.
+                            </p>
+                        </div>
+                        <div className='pb-2'>
+                            <h3 className='text-left text-xl regular-header'>
+                                Version Control (Git)
+                            </h3>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut accumsan mi quis mauris faucibus, non tristique eros scelerisque. Nunc egestas magna ac tortor elementum tempor. Nunc cursus sodales nibh, ut vestibulum est hendrerit ut. Aliquam vel odio at diam scelerisque lacinia. Cras venenatis orci lacus, et feugiat velit interdum nec. Mauris id risus ac elit auctor porta non id lacus. Nullam auctor libero ut nulla accumsan vulputate. Aliquam semper in ex in feugiat. In hac habitasse platea dictumst. Fusce sit amet porttitor eros.
+                            </p>
+                        </div>
+                        <div className='pb-2'>
+                            <h3 className='text-left text-xl regular-header'>
+                                Cloud Platforms and Deployment
+                            </h3>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut accumsan mi quis mauris faucibus, non tristique eros scelerisque. Nunc egestas magna ac tortor elementum tempor. Nunc cursus sodales nibh, ut vestibulum est hendrerit ut. Aliquam vel odio at diam scelerisque lacinia. Cras venenatis orci lacus, et feugiat velit interdum nec. Mauris id risus ac elit auctor porta non id lacus. Nullam auctor libero ut nulla accumsan vulputate. Aliquam semper in ex in feugiat. In hac habitasse platea dictumst. Fusce sit amet porttitor eros.
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <p id="footnote-1" className='pt-20'>[1] Per my best, but probably not fully objective, guess.</p>
+            <p id="footnote-1" className='pt-10'>[1] Per my best, but probably not fully objective, guess.</p>
         </main >
     );
 }
