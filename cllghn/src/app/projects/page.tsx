@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react'
-import { TruncateText, filterPosts } from '@/components/utils/utils.tsx'
+import { TruncateText, filterPosts } from '@/components/utils/utils'
 import {
     Checkbox,
     Label,
@@ -39,7 +39,7 @@ export default function Projects() {
             </div>
             <div className="flex flex-col">
                 <div className='flex py-5 sm:flex-col md:flex-col lg:flex-row space-x-2'>
-                    <div className="basis-2/5 pb-5">
+                    <div className="basis-2/6 pb-5">
                         <span className='justify-center'>
                             <h2 className='text-left text-2xl regular-header pb-5'>
                                 Filters
@@ -91,7 +91,7 @@ export default function Projects() {
                             </Field>
                         </div>
                     </div>
-                    <div className="flex basis-3/5 pb-5">
+                    <div className="flex basis-4/6 pb-5">
                         <div className="mx-auto max-w-2xl lg:max-w-4xl">
                             <div className="pb-10 space-y-10">
                                 {sortedPosts.map((post) => (

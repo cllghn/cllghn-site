@@ -1,6 +1,7 @@
 import GaugeChart from '@/components/viz/gauges';
+import RadarChart from '@/components/viz/radar';
 import React from 'react';
-import { FaCode, FaCodeBranch, FaMountain, FaPalette, FaUtensils, FaGlobeAmericas, FaSpa, FaChalkboardTeacher, FaBicycle, FaGraduationCap } from "react-icons/fa";
+import { FaCode, FaCodeBranch, FaMountain, FaPalette, FaUtensils, FaGlobeAmericas, FaSpa, FaChalkboardTeacher, FaBicycle, FaGraduationCap, FaServer, FaImage, FaCloud } from "react-icons/fa";
 
 export default function About() {
     return (
@@ -86,7 +87,7 @@ export default function About() {
                     </h2>
                     <a href="#footnote-1">[1]</a>
                 </span>
-                <div className='flex py-5 sm:flex-col md:flex-col lg:flex-row space-x-2'>
+                <div className='flex pb-5 sm:flex-col md:flex-col lg:flex-row space-x-2'>
                     <div className="flex basis-1/5 pb-5">
                         <span className='flex justify-center'>
                             <h2 className='text-left text-2xl regular-header'>
@@ -95,15 +96,15 @@ export default function About() {
                         </span>
                     </div>
                     <div className='flex basis-2/5 pb-5 space-x-4'>
-                        <GaugeChart value={80} label={'JS'} fillColor={'#a6cee3'} />
-                        <GaugeChart value={90} label={'Python'} fillColor={'#1f78b4'} />
+                        <GaugeChart value={80} label={'JS'} fillColor={"#1192e8"} />
+                        <GaugeChart value={90} label={'Python'} fillColor={"#fa4d56"} />
                     </div>
                     <div className='flex basis-2/5 pb-5 space-x-4'>
-                        <GaugeChart value={95} label={'R'} fillColor={'#b2df8a'} />
-                        <GaugeChart value={85} label={'SQL'} fillColor={'#33a02c'} />
+                        <GaugeChart value={95} label={'R'} fillColor={"#002d9c"} />
+                        <GaugeChart value={85} label={'SQL'} fillColor={"#009d9a"} />
                     </div>
                 </div>
-                <div className='flex py-5 sm:flex-col md:flex-col lg:flex-row space-x-2'>
+                <div className='flex pb-5 sm:flex-col md:flex-col lg:flex-row space-x-2'>
                     <div className="flex basis-1/5 pb-5">
                         <span className='flex justify-center'>
                             <h2 className='text-left text-2xl regular-header'>
@@ -112,49 +113,10 @@ export default function About() {
                         </span>
                     </div>
                     <div className='basis-4/5 pb-5'>
-                        <div className='pb-2'>
-                            <h3 className='text-left text-xl regular-header'>
-                                Data Wrangling
-                            </h3>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut accumsan mi quis mauris faucibus, non tristique eros scelerisque. Nunc egestas magna ac tortor elementum tempor. Nunc cursus sodales nibh, ut vestibulum est hendrerit ut. Aliquam vel odio at diam scelerisque lacinia. Cras venenatis orci lacus, et feugiat velit interdum nec. Mauris id risus ac elit auctor porta non id lacus. Nullam auctor libero ut nulla accumsan vulputate. Aliquam semper in ex in feugiat. In hac habitasse platea dictumst. Fusce sit amet porttitor eros.
-                            </p>
-                        </div>
-                        <div className='pb-2'>
-                            <h3 className='text-left text-xl regular-header'>
-                                Database Management
-                            </h3>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut accumsan mi quis mauris faucibus, non tristique eros scelerisque. Nunc egestas magna ac tortor elementum tempor. Nunc cursus sodales nibh, ut vestibulum est hendrerit ut. Aliquam vel odio at diam scelerisque lacinia. Cras venenatis orci lacus, et feugiat velit interdum nec. Mauris id risus ac elit auctor porta non id lacus. Nullam auctor libero ut nulla accumsan vulputate. Aliquam semper in ex in feugiat. In hac habitasse platea dictumst. Fusce sit amet porttitor eros.
-                            </p>
-                        </div>
-                        <div className='pb-2'>
-                            <h3 className='text-left text-xl regular-header'>
-                                Data Visualization
-                            </h3>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut accumsan mi quis mauris faucibus, non tristique eros scelerisque. Nunc egestas magna ac tortor elementum tempor. Nunc cursus sodales nibh, ut vestibulum est hendrerit ut. Aliquam vel odio at diam scelerisque lacinia. Cras venenatis orci lacus, et feugiat velit interdum nec. Mauris id risus ac elit auctor porta non id lacus. Nullam auctor libero ut nulla accumsan vulputate. Aliquam semper in ex in feugiat. In hac habitasse platea dictumst. Fusce sit amet porttitor eros.
-                            </p>
-                        </div>
-                        <div className='pb-2'>
-                            <h3 className='text-left text-xl regular-header'>
-                                Statistics
-                            </h3>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut accumsan mi quis mauris faucibus, non tristique eros scelerisque. Nunc egestas magna ac tortor elementum tempor. Nunc cursus sodales nibh, ut vestibulum est hendrerit ut. Aliquam vel odio at diam scelerisque lacinia. Cras venenatis orci lacus, et feugiat velit interdum nec. Mauris id risus ac elit auctor porta non id lacus. Nullam auctor libero ut nulla accumsan vulputate. Aliquam semper in ex in feugiat. In hac habitasse platea dictumst. Fusce sit amet porttitor eros.
-                            </p>
-                        </div>
-                        <div className='pb-2'>
-                            <h3 className='text-left text-xl regular-header'>
-                                Machine Learning
-                            </h3>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut accumsan mi quis mauris faucibus, non tristique eros scelerisque. Nunc egestas magna ac tortor elementum tempor. Nunc cursus sodales nibh, ut vestibulum est hendrerit ut. Aliquam vel odio at diam scelerisque lacinia. Cras venenatis orci lacus, et feugiat velit interdum nec. Mauris id risus ac elit auctor porta non id lacus. Nullam auctor libero ut nulla accumsan vulputate. Aliquam semper in ex in feugiat. In hac habitasse platea dictumst. Fusce sit amet porttitor eros.
-                            </p>
-                        </div>
+                        <RadarChart />
                     </div>
                 </div>
-                <div className='flex py-5 sm:flex-col md:flex-col lg:flex-row space-x-2'>
+                <div className='flex py-b sm:flex-col md:flex-col lg:flex-row space-x-2'>
                     <div className="flex basis-1/5 pb-5">
                         <span className='flex justify-center'>
                             <h2 className='text-left text-2xl regular-header'>
@@ -164,32 +126,32 @@ export default function About() {
                     </div>
                     <div className='basis-4/5 pb-5'>
                         <div className='pb-2'>
-                            <h3 className='text-left text-xl regular-header'>
-                                Front-End Development
+                            <h3 className='flex text-left text-xl regular-header space-x-2'>
+                                <FaImage size={25} />&nbsp;<span>Front-End Development</span>
                             </h3>
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut accumsan mi quis mauris faucibus, non tristique eros scelerisque. Nunc egestas magna ac tortor elementum tempor. Nunc cursus sodales nibh, ut vestibulum est hendrerit ut. Aliquam vel odio at diam scelerisque lacinia. Cras venenatis orci lacus, et feugiat velit interdum nec. Mauris id risus ac elit auctor porta non id lacus. Nullam auctor libero ut nulla accumsan vulputate. Aliquam semper in ex in feugiat. In hac habitasse platea dictumst. Fusce sit amet porttitor eros.
                             </p>
                         </div>
                         <div className='pb-2'>
-                            <h3 className='text-left text-xl regular-header'>
-                                Back-End Development
+                            <h3 className='flex text-left text-xl regular-header space-x-2'>
+                                <FaServer size={25} />&nbsp;<span>Back-End Development</span>
                             </h3>
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut accumsan mi quis mauris faucibus, non tristique eros scelerisque. Nunc egestas magna ac tortor elementum tempor. Nunc cursus sodales nibh, ut vestibulum est hendrerit ut. Aliquam vel odio at diam scelerisque lacinia. Cras venenatis orci lacus, et feugiat velit interdum nec. Mauris id risus ac elit auctor porta non id lacus. Nullam auctor libero ut nulla accumsan vulputate. Aliquam semper in ex in feugiat. In hac habitasse platea dictumst. Fusce sit amet porttitor eros.
                             </p>
                         </div>
                         <div className='pb-2'>
-                            <h3 className='text-left text-xl regular-header'>
-                                Version Control (Git)
+                            <h3 className='flex text-left text-xl regular-header space-x-2'>
+                                <FaCodeBranch size={25} />&nbsp;<span>Version Control</span>
                             </h3>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut accumsan mi quis mauris faucibus, non tristique eros scelerisque. Nunc egestas magna ac tortor elementum tempor. Nunc cursus sodales nibh, ut vestibulum est hendrerit ut. Aliquam vel odio at diam scelerisque lacinia. Cras venenatis orci lacus, et feugiat velit interdum nec. Mauris id risus ac elit auctor porta non id lacus. Nullam auctor libero ut nulla accumsan vulputate. Aliquam semper in ex in feugiat. In hac habitasse platea dictumst. Fusce sit amet porttitor eros.
+                                When it comes to version control, I am all in on Git. I am less enamored with the idea of hosting my code on GitHub, though they make it all too easy. Check out my public facing profile <a href='https://github.com/cllghn' target='_blank'>here</a>.
                             </p>
                         </div>
                         <div className='pb-2'>
-                            <h3 className='text-left text-xl regular-header'>
-                                Cloud Platforms and Deployment
+                            <h3 className='flex text-left text-xl regular-header space-x-2'>
+                                <FaCloud size={25} />&nbsp;<span>Cloud Platforms and Deployment</span>
                             </h3>
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut accumsan mi quis mauris faucibus, non tristique eros scelerisque. Nunc egestas magna ac tortor elementum tempor. Nunc cursus sodales nibh, ut vestibulum est hendrerit ut. Aliquam vel odio at diam scelerisque lacinia. Cras venenatis orci lacus, et feugiat velit interdum nec. Mauris id risus ac elit auctor porta non id lacus. Nullam auctor libero ut nulla accumsan vulputate. Aliquam semper in ex in feugiat. In hac habitasse platea dictumst. Fusce sit amet porttitor eros.
