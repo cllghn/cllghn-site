@@ -1,9 +1,26 @@
 'use client';
 import React, { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
+import { arc, Arc } from 'd3-shape';
 
-const GaugeChart = ({ value, fillColor, min = 0, max = 100, size = 200, label = '' }) => {
-    const svgRef = useRef(null);
+type GaugeChartProps = {
+    value: number;
+    fillColor: string;
+    min?: number;
+    max?: number;
+    size?: number;
+    label?: string;
+};
+
+const GaugeChart: React.FC<GaugeChartProps> = ({
+    value,
+    fillColor,
+    min = 0,
+    max = 100,
+    size = 200,
+    label = ''
+}) => {
+    const svgRef = useRef<SVGSVGElement | null>(null);
 
     useEffect(() => {
         const currentValue = Math.max(min, Math.min(value, max)); // Clamp value between min and max
@@ -20,9 +37,8 @@ const GaugeChart = ({ value, fillColor, min = 0, max = 100, size = 200, label = 
         // Clear previous elements
         svg.selectAll('*').remove();
 
-        // Add arc generator
-        const arcGenerator = d3
-            .arc()
+        // Define arc generator with proper typing
+        const arcGenerator: Arc<any, d3.DefaultArcObject> = arc<any, d3.DefaultArcObject>()
             .innerRadius(innerRadius)
             .outerRadius(outerRadius)
             .startAngle(-Math.PI / 2);
@@ -31,26 +47,26 @@ const GaugeChart = ({ value, fillColor, min = 0, max = 100, size = 200, label = 
         svg
             .append('path')
             .datum(max - min)
-            .attr('d', arcGenerator.endAngle(Math.PI / 2))
+            .attr('d', () => arcGenerator.endAngle(Math.PI / 2)({} as d3.DefaultArcObject)!)
             .attr('fill', '#fffff7')
             .attr('transform', `translate(${width / 2}, ${height})`);
+
 
         // Add animated foreground arc
         const foreground = svg
             .append('path')
             .datum(0) // Start with 0
-            .attr('fill', `${fillColor}`)
+            .attr('fill', fillColor)
             .attr('transform', `translate(${width / 2}, ${height})`);
 
-        // Animate the arc
         foreground
             .transition()
             .duration(1000) // 1 second animation
             .attrTween('d', function (d) {
                 const interpolate = d3.interpolate(d, currentValue - min);
                 return function (t) {
-                    d = interpolate(t);
-                    return arcGenerator.endAngle((d / (max - min)) * Math.PI - Math.PI / 2)();
+                    const interpolatedValue = interpolate(t);
+                    return arcGenerator.endAngle((interpolatedValue / (max - min)) * Math.PI - Math.PI / 2)({} as d3.DefaultArcObject)!;
                 };
             });
 
@@ -93,7 +109,7 @@ const GaugeChart = ({ value, fillColor, min = 0, max = 100, size = 200, label = 
             .tween('text', function () {
                 const interpolate = d3.interpolate(0, currentValue);
                 return function (t) {
-                    d3.select(this).text(Math.round(interpolate(t)) + '%');
+                    d3.select(this).text(`${Math.round(interpolate(t))}%`);
                 };
             });
 
@@ -107,7 +123,7 @@ const GaugeChart = ({ value, fillColor, min = 0, max = 100, size = 200, label = 
                 .attr('class', 'gauge-text')
                 .text(label);
         }
-    }, [value, min, max, size, label]);
+    }, [value, fillColor, min, max, size, label]);
 
     return <svg ref={svgRef} />;
 };

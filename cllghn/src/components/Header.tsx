@@ -1,10 +1,11 @@
 import React from 'react';
+import Link from 'next/link';
 
 const Header = () => {
     return (
         <div className="relative px-4 sm:px-6 md:px-8 py-6 lg:pt-8 flex items-center justify-between text-slate-700 font-thin text-lg leading-6 bg-[#fffff7] h-24">
             <div className='text-right uppercase'>
-                <a href="/" >chris<br /> callaghan</a>
+                <Link href="/" >chris<br /> callaghan</Link>
             </div>
             <div className="flex items-center" >
                 <div className="hidden md:flex items-center">

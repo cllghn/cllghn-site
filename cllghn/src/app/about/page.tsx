@@ -1,7 +1,8 @@
 import GaugeChart from '@/components/viz/gauges';
 import RadarChart from '@/components/viz/radar';
 import React from 'react';
-import { FaCode, FaCodeBranch, FaMountain, FaPalette, FaUtensils, FaGlobeAmericas, FaSpa, FaChalkboardTeacher, FaBicycle, FaGraduationCap, FaServer, FaImage, FaCloud } from "react-icons/fa";
+import { FaCode, FaCodeBranch, FaMountain, FaPalette, FaUtensils, FaGlobeAmericas, FaChalkboardTeacher, FaBicycle, FaGraduationCap, FaServer, FaImage, FaCloud, FaFileCode, FaJs, FaToolbox, FaVial, FaDocker, FaGithub, FaPython, FaNodeJs, FaDatabase, FaLock } from "react-icons/fa";
+import { FaArrowsRotate, FaEllipsis, FaRobot } from 'react-icons/fa6';
 
 export default function About() {
     return (
@@ -17,7 +18,7 @@ export default function About() {
                     Before joining the CSG Justice Center, I was a faculty researcher for the U.S. Navy at the Naval Postgraduate School in the <a href='https://nps.edu/web/da' target='_blank'>Department of Defense Analysis</a>. There, I supported homeland security and defense research through the lens of data science and taught courses on social networks analysis and data visualization to military, law enforcement, and international security professionals.
                 </p>
                 <p className='pb-5 text-lg'>
-                    I've been lucky enough to spend most of my adult life in the central coast of California, though I am native to Mexico. My husband and I currently live in Sacramento with our opinionated cat. When we can get away, we often backpack around the Sierra Nevada.
+                    I&apos;ve been lucky enough to spend most of my adult life in the central coast of California, though I am native to Mexico. My husband and I currently live in Sacramento with our opinionated cat. When we can get away, we often backpack around the Sierra Nevada.
                 </p>
             </div>
 
@@ -38,7 +39,7 @@ export default function About() {
                                 <FaCode size={15} />&nbsp;<span>Open-source software (developing and using).</span>
                             </li>
                             <li className='flex space-x-2 items-center'>
-                                <FaChalkboardTeacher size={15} />&nbsp;<span>Learning from others and sharing what I've picked up.</span>
+                                <FaChalkboardTeacher size={15} />&nbsp;<span>Learning from others and sharing what I&apos;ve picked up.</span>
                             </li>
                             <li className='flex space-x-2 items-center'>
                                 <FaMountain size={15} />&nbsp;<span>Hiking, camping, and backpacking (usually in CA).</span>
@@ -87,7 +88,7 @@ export default function About() {
                     </h2>
                     <a href="#footnote-1">[1]</a>
                 </span>
-                <div className='flex pb-5 sm:flex-col md:flex-col lg:flex-row space-x-2'>
+                <div className='flex pb-5 flex-col lg:flex-row space-x-2'>
                     <div className="flex basis-1/5 pb-5">
                         <span className='flex justify-center'>
                             <h2 className='text-left text-2xl regular-header'>
@@ -125,37 +126,81 @@ export default function About() {
                         </span>
                     </div>
                     <div className='basis-4/5 pb-5'>
-                        <div className='pb-2'>
-                            <h3 className='flex text-left text-xl regular-header space-x-2'>
+                        <div className='pb-5'>
+                            <h3 className='flex text-left text-xl regular-header space-x-2 pb-2 sm:pb-0'>
                                 <FaImage size={25} />&nbsp;<span>Front-End Development</span>
                             </h3>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut accumsan mi quis mauris faucibus, non tristique eros scelerisque. Nunc egestas magna ac tortor elementum tempor. Nunc cursus sodales nibh, ut vestibulum est hendrerit ut. Aliquam vel odio at diam scelerisque lacinia. Cras venenatis orci lacus, et feugiat velit interdum nec. Mauris id risus ac elit auctor porta non id lacus. Nullam auctor libero ut nulla accumsan vulputate. Aliquam semper in ex in feugiat. In hac habitasse platea dictumst. Fusce sit amet porttitor eros.
-                            </p>
+                            <ul className='list-none text-lg sm:px-10 sm:py-2'>
+                                <li className='flex space-x-2 text-start sm:items-center sm:text-left pb-2 sm:pb-0'>
+                                    <FaFileCode size={15} className='mt-1 sm:mt-0' />&nbsp;<span>HTML and CSS (+Tailwind).</span>
+                                </li>
+                                <li className='flex space-x-2 sm:items-center sm:text-left pb-2 sm:pb-0'>
+                                    <FaJs size={15} className='mt-1 sm:mt-0' />&nbsp;<span>JavaScript with the support of React and Next.js.</span>
+                                </li>
+                                <li className='flex space-x-2 sm:items-center sm:text-left pb-2 sm:pb-0'>
+                                    <FaToolbox size={15} className='mt-1 sm:mt-0' />&nbsp;<span>NPM, Yarn, and Vite.</span>
+                                </li>
+                                <li className='flex space-x-2 sm:items-center sm:text-left pb-2 sm:pb-0'>
+                                    <FaPalette size={15} className='mt-1 sm:mt-0' />&nbsp;<span>Desing with Figma and build with component libraries (Material UI, Bootstrap).</span>
+                                </li>
+                                <li className='flex space-x-2 sm:items-center sm:text-left pb-2 sm:pb-0'>
+                                    <FaVial size={15} className='mt-1 sm:mt-0' />&nbsp;<span>Testing in Jest.</span>
+                                </li>
+                                <li className='flex space-x-2 sm:items-center sm:text-left pb-2 sm:pb-0'>
+                                    <FaEllipsis size={15} className='mt-1 sm:mt-0' />&nbsp;<span>And so much more!</span>
+                                </li>
+                            </ul>
                         </div>
-                        <div className='pb-2'>
+                        <div className='pb-5'>
                             <h3 className='flex text-left text-xl regular-header space-x-2'>
                                 <FaServer size={25} />&nbsp;<span>Back-End Development</span>
                             </h3>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut accumsan mi quis mauris faucibus, non tristique eros scelerisque. Nunc egestas magna ac tortor elementum tempor. Nunc cursus sodales nibh, ut vestibulum est hendrerit ut. Aliquam vel odio at diam scelerisque lacinia. Cras venenatis orci lacus, et feugiat velit interdum nec. Mauris id risus ac elit auctor porta non id lacus. Nullam auctor libero ut nulla accumsan vulputate. Aliquam semper in ex in feugiat. In hac habitasse platea dictumst. Fusce sit amet porttitor eros.
-                            </p>
+                            <ul className='list-none text-lg sm:px-10 sm:py-2'>
+                                <li className='flex space-x-2 text-start sm:items-center sm:text-left pb-2 sm:pb-0'>
+                                    <FaPython size={15} className='mt-1 sm:mt-0' />&nbsp;<span>Prefer working in Python, powered by Django and Flask.</span>
+                                </li>
+                                <li className='flex space-x-2 text-start sm:items-center sm:text-left pb-2 sm:pb-0'>
+                                    <FaNodeJs size={15} className='mt-1 sm:mt-0' />&nbsp;<span>Can handle myself in Node.js + Express.js.</span>
+                                </li>
+                                <li className='flex space-x-2 text-start sm:items-center sm:text-left pb-2 sm:pb-0'>
+                                    <FaDatabase size={15} className='mt-1 sm:mt-0' />&nbsp;<span>Worked primaraly with RDBMS (MSSQL, PostgreSQL, and SQLite).</span>
+                                </li>
+                                <li className='flex space-x-2 text-start sm:items-center sm:text-left pb-2 sm:pb-0'>
+                                    <FaRobot size={15} className='mt-1 sm:mt-0' />&nbsp;<span>REST API user, documenter (Swagger), and builder (Express.js, Flask, Plumber).</span>
+                                </li>
+                                <li className='flex space-x-2 sm:items-center sm:text-left pb-2 sm:pb-0'>
+                                    <FaEllipsis size={15} className='mt-1 sm:mt-0' />&nbsp;<span>And so much more!</span>
+                                </li>
+                            </ul>
                         </div>
-                        <div className='pb-2'>
+                        <div className='pb-5'>
                             <h3 className='flex text-left text-xl regular-header space-x-2'>
                                 <FaCodeBranch size={25} />&nbsp;<span>Version Control</span>
                             </h3>
-                            <p>
-                                When it comes to version control, I am all in on Git. I am less enamored with the idea of hosting my code on GitHub, though they make it all too easy. Check out my public facing profile <a href='https://github.com/cllghn' target='_blank'>here</a>.
-                            </p>
+                            <ul className='list-none text-lg sm:px-10 sm:py-2'>
+                                <li className='flex space-x-2 text-start  sm:text-left pb-2 sm:pb-0'>
+                                    <FaGithub size={25} className='mt-1 sm:mt-0' />&nbsp;<span>When it comes to version control, I am all in on Git. I am less enamored with the idea of hosting my code on GitHub, though they make it all too easy. Check out my public facing profile <a href='https://github.com/cllghn' target='_blank'>here</a>.</span>
+                                </li>
+                            </ul>
                         </div>
-                        <div className='pb-2'>
+                        <div className='pb-5'>
                             <h3 className='flex text-left text-xl regular-header space-x-2'>
                                 <FaCloud size={25} />&nbsp;<span>Cloud Platforms and Deployment</span>
                             </h3>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut accumsan mi quis mauris faucibus, non tristique eros scelerisque. Nunc egestas magna ac tortor elementum tempor. Nunc cursus sodales nibh, ut vestibulum est hendrerit ut. Aliquam vel odio at diam scelerisque lacinia. Cras venenatis orci lacus, et feugiat velit interdum nec. Mauris id risus ac elit auctor porta non id lacus. Nullam auctor libero ut nulla accumsan vulputate. Aliquam semper in ex in feugiat. In hac habitasse platea dictumst. Fusce sit amet porttitor eros.
-                            </p>
+                            <ul className='list-none text-lg sm:px-10 sm:py-2'>
+                                <li className='flex space-x-2 text-start sm:items-center sm:text-left pb-2 sm:pb-0'>
+                                    <FaCloud size={15} className='mt-1 sm:mt-0' />&nbsp;<span>Mostly AWS, sometimes Google Cloud Platform, rarely Azure.</span>
+                                </li>
+                                <li className='flex space-x-2 text-start sm:items-center sm:text-left pb-2 sm:pb-0'>
+                                    <FaDocker size={15} className='mt-1 sm:mt-0' />&nbsp;<span>Containarize with Docker.</span>
+                                </li>
+                                <li className='flex space-x-2 text-start sm:items-center sm:text-left pb-2 sm:pb-0'>
+                                    <FaArrowsRotate size={15} className='mt-1 sm:mt-0' />&nbsp;<span>CI/CD with GitHub Actions.</span>
+                                </li>
+                                <li className='flex space-x-2 text-start sm:items-center sm:text-left pb-2 sm:pb-0'>
+                                    <FaGraduationCap size={15} className='mt-1 sm:mt-0' />&nbsp;<span>Working on AWS cert (slowly).</span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>

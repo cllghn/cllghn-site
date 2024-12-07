@@ -3,7 +3,7 @@
         "id": 1,
         "title": "snExplorer",
         "description": "{snExplorer} is a parsimonious R Shiny application for interactive visualization and analysis of social networks. Underneath the hood, this tool uses igraph and other R packages to provide a user-friendly interface for exploring social networks.",
-        "imageUrl": "https://github.com/cllghn/snExplorer/blob/master/man/figures/landing.png?raw=true",
+        "imageUrl": "/landing.png",
         "datetime": "2019-03-01",
         "category": [
             "R"
@@ -17,7 +17,7 @@
         "id": 2,
         "title": "NCDACdb",
         "description": "A Python tool for downloading and creating a local database from files obtained through the North Carolina Department Of Adult Correction Offender Public Information site. The site provides a links to files of North Carolina Department of Adult Correction offender related data. The files contain all public information on all NC Department of Adult Correction offenders convicted since 1972. The data files are zipped and their approximate size is listed beside the file description.",
-        "imageUrl": "https://github.com/cllghn/cllghn-site/blob/main/cllghn/src/app/assets/ncdac.png?raw=true",
+        "imageUrl": "/ncdac.png",
         "datetime": "2024-03-01",
         "category": [
             "Python",
@@ -32,7 +32,7 @@
         "id": 3,
         "title": "Análisis de Redes Sociales",
         "description": "A manual on social network analysis in Spanish. This manual is a work in progress and is intended to be a resource for students. I co-developed it with Sean Everton (NPS) and Gen. Augusto Alvarez (Ret.) (ESGE) while teaching a course on social network analysis at the Escuela Superior de Guerra (ESGE) in Peru.",
-        "imageUrl": "https://github.com/cllghn/arso/blob/main/images/core-esge.png?raw=true",
+        "imageUrl": "/core-esge.png",
         "datetime": "2018-01-01",
         "category": [
             "R"
@@ -46,7 +46,7 @@
         "id": 4,
         "title": "cllg.hn",
         "description": "My personal website created with React, Next.js, TailwindCSS, and a wee bit of D3. Code is public and available on Github.",
-        "imageUrl": "https://github.com/cllghn/cllghn-site/blob/main/cllghn/src/app/assets/ncdac.png?raw=true",
+        "imageUrl": "/cllghn.png",
         "datetime": "2024-11-27",
         "category": [
             "JavaScript"

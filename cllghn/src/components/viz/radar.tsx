@@ -1,13 +1,26 @@
 'use client'
 import React, { useEffect, useRef } from "react";
 import * as d3 from "d3";
+import { Selection } from "d3-selection";
+
+// Define DataPoint type for individual metric values
+interface DataPoint {
+    axis: string;
+    value: number;
+}
+
+// Define DataItem type for each language
+interface DataItem {
+    language: string;
+    metrics: DataPoint[];
+}
 
 const RadarChart = () => {
-    const chartRef = useRef();
+    const chartRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
         // Data: Each language with values for each metric
-        const data = [
+        const data: DataItem[] = [
             {
                 language: "JS",
                 metrics: [
@@ -51,7 +64,9 @@ const RadarChart = () => {
         ];
 
         // Clear previous chart (if any)
-        d3.select(chartRef.current).selectAll("*").remove();
+        if (chartRef.current) {
+            d3.select(chartRef.current).selectAll("*").remove();
+        }
 
         // Chart dimensions
         const width = 500, height = 500;
@@ -67,16 +82,17 @@ const RadarChart = () => {
             .domain(data.map(d => d.language))
             .range(["#1192e8", "#fa4d56", "#002d9c", "#009d9a"]);
 
-        // Append SVG
-        const svg = d3.select(chartRef.current)
-            .append("svg")
-            .attr("width", width)
-            .attr("height", height)
-            .append("g")
-            .attr("transform", `translate(${width / 2}, ${height / 2})`);
+        const svg: Selection<SVGGElement, unknown, HTMLElement, any> | null = chartRef.current
+            ? d3.select(chartRef.current)
+                .append("svg")
+                .attr("width", width)
+                .attr("height", height)
+                .append("g")
+                .attr("transform", `translate(${width / 2}, ${height / 2})`)
+            : null;
 
         // Create tooltip element
-        const tooltip = d3.select(chartRef.current)
+        const tooltip = chartRef.current && d3.select(chartRef.current)
             .append("div")
             .style("position", "absolute")
             .style("background", "#efeee8")
@@ -90,171 +106,125 @@ const RadarChart = () => {
 
         // Draw circular grid
         const levels = 10;
-        for (let i = 0; i < levels; i++) {
-            svg.append("circle")
-                .attr("cx", 0)
-                .attr("cy", 0)
-                .attr("r", (i + 1) * radius / levels)
-                .attr("stroke", "#3b3b3b")
-                .attr("fill", "none")
-                .attr("stroke-dasharray", "2 2");
+        if (svg) {
+            for (let i = 0; i < levels; i++) {
+                svg.append("circle")
+                    .attr("cx", 0)
+                    .attr("cy", 0)
+                    .attr("r", (i + 1) * radius / levels)
+                    .attr("stroke", "#3b3b3b")
+                    .attr("fill", "none")
+                    .attr("stroke-dasharray", "2 2");
+            }
         }
 
         // Add axis lines and labels
         data[0].metrics.forEach((metric, i) => {
             const angle = angleSlice * i;
             const lineCoord = { x: rScale(1) * Math.sin(angle), y: rScale(1) * -Math.cos(angle) };
-            console.log(lineCoord)
-            svg.append("line")
-                .attr("x1", 0)
-                .attr("y1", 0)
-                .attr("x2", lineCoord.x)
-                .attr("y2", lineCoord.y)
-                .attr("stroke", "#3b3b3b");
+            if (svg) {
+                svg.append("line")
+                    .attr("x1", 0)
+                    .attr("y1", 0)
+                    .attr("x2", lineCoord.x)
+                    .attr("y2", lineCoord.y)
+                    .attr("stroke", "#3b3b3b");
+                const labelCoord = { x: rScale(1.1) * Math.sin(angle), y: rScale(1.1) * -Math.cos(angle) };
+                const labelParts = metric.axis.split(" "); // Split label into parts
 
-            const labelCoord = { x: rScale(1.1) * Math.sin(angle), y: rScale(1.1) * -Math.cos(angle) };
-            const labelParts = metric.axis.split(" "); // Split label into parts
+                const text = svg.append("text")
+                    .attr("x", labelCoord.x)
+                    .attr("y", labelCoord.y)
+                    .attr("text-anchor", angle > Math.PI ? "end" : "start") // Adjust based on quadrant
+                    .attr("alignment-baseline", "middle")
+                    .style("font-size", "12px")
+                    .style("fill", "#3b3b3b");
 
-            const text = svg.append("text")
-                .attr("x", labelCoord.x)
-                .attr("y", labelCoord.y)
-                .attr("text-anchor", angle > Math.PI ? "end" : "start") // Adjust based on quadrant
-                .attr("alignment-baseline", "middle")
-                .style("font-size", "12px")
-                .style("fill", "#3b3b3b");
+                text.selectAll("tspan")
+                    .data(labelParts)
+                    .enter()
+                    .append("tspan")
+                    .attr("x", labelCoord.x)
+                    .attr("dy", (d, j) => j === 0 ? 0 : "1.2em")
+                    .text(d => d);
+            }
 
-            text.selectAll("tspan")
-                .data(labelParts)
-                .enter()
-                .append("tspan")
-                .attr("x", labelCoord.x)
-                .attr("dy", (d, j) => j === 0 ? 0 : "1.2em")
-                .text(d => d);
         });
 
-
-        // Add data series
-        const line = d3.lineRadial()
+        // Create the line generator for radial lines
+        const line = d3.lineRadial<DataPoint>()
             .radius(d => rScale(d.value))
             .angle((d, i) => i * angleSlice)
             .curve(d3.curveCardinalClosed);
 
-        const paths = svg.selectAll(".data-path")
+        // Add data series
+        const paths: Selection<SVGPathElement, DataItem, SVGSVGElement, unknown> | null = svg
+            ?.selectAll<SVGPathElement, DataItem>(".data-path")
             .data(data)
             .enter()
             .append("path")
-            .attr("class", d => `data-path ${d.language}`)
-            .attr("d", d => line(d.metrics))
+            .attr("class", (d) => `data-path ${d.language}`)
+            .attr("d", (d) => {
+                const path = line(d.metrics.map(m => ({ axis: m.axis, value: m.value })));
+                return path ? path : "";
+            })
             .style("fill", "none")
-            // .style("fill", d => colorScale(d.language))
-            // .style("fill-opacity", 0.1)
-            .style("stroke", d => colorScale(d.language))
-            .style("stroke-width", 3);
+            .style("stroke", (d) => colorScale(d.language)!)
+            .style("stroke-width", "3");
+
 
         // Add points for each value in the series
         data.forEach(languageData => {
-            svg.selectAll(`.point-${languageData.language}`)
-                .data(languageData.metrics)
-                .enter()
-                .append("circle")
-                .attr("class", `point-${languageData.language} point`)
-                .attr("cx", (d, i) => rScale(d.value) * Math.sin(angleSlice * i))
-                .attr("cy", (d, i) => rScale(d.value) * -Math.cos(angleSlice * i))
-                .attr("r", 4)
-                .style("fill", colorScale(languageData.language))
-                .style("stroke", "#fffff7")
-                .style("stroke-width", 1)
-                // Add tooltip and opacity interactions for points
-                .on("mouseover", function (event, d) {
-                    svg.selectAll(".data-path").style("opacity", 0.2);
-                    d3.selectAll(".point").style("opacity", 0.2);
-                    d3.select(event.currentTarget).style("opacity", 1);
-                    tooltip
-                        .html(`<strong>${languageData.language}</strong><br>${d.axis}: ${(d.value * 100).toFixed(0) + "%"}`)
-                        .style("visibility", "visible");
-                })
-                .on("mousemove", (event) => {
-                    tooltip
-                        .style("top", `${event.pageY + 10}px`)
-                        .style("left", `${event.pageX + 10}px`);
-                })
-                .on("mouseout", () => {
-                    svg.selectAll(".data-path").style("opacity", 1);
-                    d3.selectAll(".point").style("opacity", 1);
-                    tooltip.style("visibility", "hidden");
-                });
+            if (svg) {
+                svg.selectAll(`.point-${languageData.language}`)
+                    .data(languageData.metrics)
+                    .enter()
+                    .append("circle")
+                    .attr("class", `point-${languageData.language} point`)
+                    .attr("cx", (d, i) => rScale(d.value) * Math.sin(angleSlice * i))
+                    .attr("cy", (d, i) => rScale(d.value) * -Math.cos(angleSlice * i))
+                    .attr("r", 4)
+                    .style("stroke", "#fffff7")
+                    .style("fill", colorScale(languageData.language))
+                    .style("stroke-width", 1)
+                    // Add tooltip and opacity interactions for points
+                    .on("mouseover", function (event, d) {
+                        svg.selectAll(".data-path").style("opacity", 0.2);
+                        d3.selectAll(".point").style("opacity", 0.2);
+                        d3.select(event.currentTarget).style("opacity", 1);
+                        tooltip
+                            .html(`<strong>${languageData.language}</strong><br>${d.axis}: ${(d.value * 100).toFixed(0) + "%"}`)
+                            .style("visibility", "visible");
+                    })
+                    .on("mousemove", (event) => {
+                        tooltip
+                            .style("top", `${event.pageY + 10}px`)
+                            .style("left", `${event.pageX + 10}px`);
+                    })
+                    .on("mouseout", () => {
+                        svg.selectAll(".data-path").style("opacity", 1);
+                        d3.selectAll(".point").style("opacity", 1);
+                        tooltip.style("visibility", "hidden");
+                    });
+            }
         });
+
         // Tooltip interaction
         paths
             .on("mouseover", (event, d) => {
                 // Dim other paths
                 paths.style("opacity", 0.2);
                 d3.select(event.currentTarget).style("opacity", 1);
-                // Dim other points
-                svg.selectAll('.point').style("opacity", 0.2);
-                svg.selectAll(`.point-${d.language}`).style("opacity", 1);
-
-                tooltip
-                    .html(`<strong>${d.language}</strong>
-                           <br>
-                            ${d.metrics.map(m => `${m.axis}: ${(m.value * 100).toFixed(0) + "%"}`).join("<br>")}`)
-                    .style("visibility", "visible");
-            })
-            .on("mousemove", (event) => {
-                tooltip
-                    .style("top", `${event.pageY + 10}px`)
-                    .style("left", `${event.pageX + 10}px`);
             })
             .on("mouseout", () => {
-                // Reset opacity
                 paths.style("opacity", 1);
-                d3.selectAll(".point").style("opacity", 1);
-                tooltip.style("visibility", "hidden");
             });
 
-        // Add legend
-        const legend = svg.append("g").attr("transform", `translate(${-width / 2 + margin}, ${-height / 2 + margin})`);
-        data.forEach((languageData, i) => {
-            legend.append("circle")
-                .attr("cx", 0)
-                .attr("cy", i * 15)
-                .attr("r", 5)
-                .style("fill", colorScale(languageData.language))
-                .style("cursor", "pointer")
-                .on("click", () => toggleVisibility(languageData.language));
+    }, []); // Run once on mount
 
-            legend.append("text")
-                .attr("x", 10)
-                .attr("y", i * 15 + 5)
-                .text(languageData.language)
-                .attr("alignment-baseline", "middle")
-                .attr("class", `legend-text ${languageData.language}`)
-                .style("font-size", "12px")
-                .style("cursor", "pointer")
-                .style("fill", "#3b3b3b")
-                .on("click", () => toggleVisibility(languageData.language));
-        });
-
-        // Toggle visibility function
-        const toggleVisibility = language => {
-            const path = svg.select(`.data-path.${language}`);
-            const points = svg.selectAll(`.point-${language}`);
-            const legendText = svg.select(`.legend-text.${language}`);
-            const isVisible = path.style("display") !== "none";
-
-            // Toggle path and points visibility
-            path.style("display", isVisible ? "none" : null);
-            points.style("display", isVisible ? "none" : null);
-
-            // Update legend text styles
-            legendText
-                .style("text-decoration", isVisible ? "line-through" : "none")
-                .style("opacity", isVisible ? "0.5" : "1");
-        };
-
-    }, []); // Empty dependency array ensures it runs once when the component mounts
     return <div
         style={{ display: "flex", justifyContent: "center", alignItems: "center", padding: "16px" }}
+        className="w-full h-[50vh]"
         ref={chartRef}>
     </div>;
 };

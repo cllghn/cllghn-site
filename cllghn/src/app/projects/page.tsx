@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react'
-import { TruncateText, filterPosts } from '@/components/utils/utils'
+import { TruncateText } from '@/components/utils/utils'
 import {
     Checkbox,
     Label,
@@ -8,6 +8,7 @@ import {
 } from '@headlessui/react'
 import { CheckIcon } from '@heroicons/react/16/solid'
 import posts from '../data/projects.json'
+import Image from 'next/image'
 
 export default function Projects() {
     const [enabledJS, setEnabledJS] = useState(false)
@@ -25,7 +26,7 @@ export default function Projects() {
             (enabledSQL && post.category.includes('SQL'))
         );
     })
-    const sortedPosts = filteredPosts.sort((a, b) => new Date(b.datetime) - new Date(a.datetime));
+    const sortedPosts = filteredPosts.sort((a, b) => new Date(b.datetime).getTime() - new Date(a.datetime).getTime());
 
     return (
         <main className="container px-44 min-w-full pt-20 pb-52">
@@ -97,10 +98,12 @@ export default function Projects() {
                                 {sortedPosts.map((post) => (
                                     <article key={post.id} className="relative isolate flex flex-row  gap-8 border-b border-[#3b3b3b]/5">
                                         <div className="relative aspect-video sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0">
-                                            <img
+                                            <Image
                                                 alt=""
                                                 src={post.imageUrl}
                                                 className="absolute inset-0 size-max rounded-2xl bg-[#fffff7] object-cover"
+                                                width={400}
+                                                height={300}
                                             />
                                         </div>
                                         <div>
@@ -115,7 +118,7 @@ export default function Projects() {
                                                     </time>
                                                     {post.category.map((category) => (
                                                         <p
-                                                            className="relative z-10 rounded-full bg-[#fffff7] px-3 py-1.5 font-medium text-[#3b3b3b]"
+                                                            className="relative z-10 rounded-full bg-[#fffff7] px-3 py-1.5 font-medium text-[#3b3b3b]" key={category}
                                                         >
                                                             {category}
                                                         </p>

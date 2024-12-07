@@ -1,13 +1,14 @@
 import React from 'react';
 import { FaEnvelope } from "react-icons/fa";
+import Image from 'next/image';
 
 export default function Home() {
   return (
     <main className="container px-32 py-10 min-w-full pb-60">
-      <div class="flex lg:flex-row md:flex-row sm:flex-col">
-        <div class="basis-2/5">
-          <section class="hero container max-w-screen-lg mx-auto pb-10">
-            <img class="mx-auto size-64 rounded-full" src="/ccallaghan-headshot.jpg" alt="screenshot" />
+      <div className="flex lg:flex-row md:flex-row sm:flex-col">
+        <div className="basis-2/5">
+          <section className="hero container max-w-screen-lg mx-auto pb-10">
+            <Image className="mx-auto size-64 rounded-full" src="/ccallaghan-headshot.jpg" alt="screenshot" width={500} height={500} />
           </section>
           <h2 className='text-center text-5xl regular-header'>
             Chris Callaghan

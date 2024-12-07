@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -7,7 +6,9 @@ import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Chris Callaghan",
-  description: "Hello! Welcome to my personal website."
+  description: "Hello! Welcome to my personal website.",
+  publisher: "Chris Callaghan",
+  icons: 'adventure.ico',
 };
 
 export default function RootLayout({
