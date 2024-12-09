@@ -44,7 +44,7 @@
     },
     {
         "id": 4,
-        "title": "cllg.hn",
+        "title": "cllghn.me",
         "description": "My personal website created with React, Next.js, TailwindCSS, and a wee bit of D3. Code is public and available on Github.",
         "imageUrl": "/cllghn.png",
         "datetime": "2024-11-27",
@@ -54,6 +54,20 @@
         "more": {
             "href": "https://github.com/cllghn/cllghn-site",
             "text": "Read more on Github"
+        }
+    },
+    {
+        "id": 5,
+        "title": "Mapping Gray Maritime Networks",
+        "description": "Once upon a time, I was lucky enough to  partner with colleagues at FFI to leverage live ship tracking (AIS) data and network science for increaded maritime awareness. Out work resulted in a couple publications and our team was awarded the 2019 FFI Innovation Award.",
+        "imageUrl": "/stnm_landing.png",
+        "datetime": "2019-12-15",
+        "category": [
+            "R"
+        ],
+        "more": {
+            "href": "https://nps.edu/-/gray-networks-nps-uses-social-network-analysis-to-cast-a-bright-light-on-maritime-awareness",
+            "text": "Read more here"
         }
     }
 ]

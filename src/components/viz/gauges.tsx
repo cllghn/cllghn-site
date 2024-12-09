@@ -38,7 +38,7 @@ const GaugeChart: React.FC<GaugeChartProps> = ({
         svg.selectAll('*').remove();
 
         // Define arc generator with proper typing
-        const arcGenerator: Arc<any, d3.DefaultArcObject> = arc<any, d3.DefaultArcObject>()
+        const arcGenerator: Arc<undefined, d3.DefaultArcObject> = arc<undefined, d3.DefaultArcObject>()
             .innerRadius(innerRadius)
             .outerRadius(outerRadius)
             .startAngle(-Math.PI / 2);
