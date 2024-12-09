@@ -1,12 +1,12 @@
 import GaugeChart from '@/components/viz/gauges';
 import RadarChart from '@/components/viz/radar';
 import React from 'react';
-import { FaCode, FaCodeBranch, FaMountain, FaPalette, FaUtensils, FaGlobeAmericas, FaChalkboardTeacher, FaBicycle, FaGraduationCap, FaServer, FaImage, FaCloud, FaFileCode, FaJs, FaToolbox, FaVial, FaDocker, FaGithub, FaPython, FaNodeJs, FaDatabase, FaLock } from "react-icons/fa";
+import { FaCode, FaCodeBranch, FaMountain, FaPalette, FaUtensils, FaGlobeAmericas, FaChalkboardTeacher, FaBicycle, FaGraduationCap, FaServer, FaImage, FaCloud, FaFileCode, FaJs, FaToolbox, FaVial, FaDocker, FaGithub, FaPython, FaNodeJs, FaDatabase } from "react-icons/fa";
 import { FaArrowsRotate, FaEllipsis, FaRobot } from 'react-icons/fa6';
 
 export default function About() {
     return (
-        <main className="container px-44 min-w-full pt-20 pb-52">
+        <main className="container px-44 min-w-full pt-36 pb-52">
             <div className="flex flex-col pb-20">
                 <h2 className='text-6xl fancy-header row text-center pb-5'>
                     ABOUT ME
@@ -83,12 +83,12 @@ export default function About() {
 
             <div className="flex flex-col">
                 <span className='flex justify-center'>
-                    <h2 className='text-6xl fancy-header row text-center pb-5'>
+                    <h2 className='text-6xl fancy-header row text-center pb-10'>
                         SKILLS
                     </h2>
                     <a href="#footnote-1">[1]</a>
                 </span>
-                <div className='flex pb-5 flex-col lg:flex-row space-x-2'>
+                <div className='flex pb-10 flex-col lg:flex-row space-x-2'>
                     <div className="flex basis-1/5 pb-5">
                         <span className='flex justify-center'>
                             <h2 className='text-left text-2xl regular-header'>
@@ -96,16 +96,16 @@ export default function About() {
                             </h2>
                         </span>
                     </div>
-                    <div className='flex basis-2/5 pb-5 space-x-4'>
+                    <div className='flex flex-col md:flex-row basis-2/5 pb-5 space-x-4'>
                         <GaugeChart value={80} label={'JS'} fillColor={"#1192e8"} />
                         <GaugeChart value={90} label={'Python'} fillColor={"#fa4d56"} />
                     </div>
-                    <div className='flex basis-2/5 pb-5 space-x-4'>
+                    <div className='flex flex-col md:flex-row basis-2/5 pb-5 space-x-4'>
                         <GaugeChart value={95} label={'R'} fillColor={"#002d9c"} />
                         <GaugeChart value={85} label={'SQL'} fillColor={"#009d9a"} />
                     </div>
                 </div>
-                <div className='flex pb-5 sm:flex-col md:flex-col lg:flex-row space-x-2'>
+                <div className='flex pb-10 sm:flex-col md:flex-col lg:flex-row space-x-2'>
                     <div className="flex basis-1/5 pb-5">
                         <span className='flex justify-center'>
                             <h2 className='text-left text-2xl regular-header'>

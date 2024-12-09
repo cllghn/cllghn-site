@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export default function Home() {
   return (
-    <main className="container px-32 py-10 min-w-full pb-60">
+    <main className="container px-32 pt-36 py-10 min-w-full pb-60">
       <div className="flex lg:flex-row md:flex-row sm:flex-col">
         <div className="basis-2/5">
           <section className="hero container max-w-screen-lg mx-auto pb-10">

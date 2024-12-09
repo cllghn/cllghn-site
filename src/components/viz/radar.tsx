@@ -82,7 +82,7 @@ const RadarChart = () => {
             .domain(data.map(d => d.language))
             .range(["#1192e8", "#fa4d56", "#002d9c", "#009d9a"]);
 
-        const svg: Selection<SVGGElement, unknown, HTMLElement, any> | null = chartRef.current
+        const svg: Selection<SVGGElement, unknown, HTMLElement, undefined> | null = chartRef.current
             ? d3.select(chartRef.current)
                 .append("svg")
                 .attr("width", width)
@@ -211,7 +211,7 @@ const RadarChart = () => {
 
         // Tooltip interaction
         paths
-            .on("mouseover", (event, d) => {
+            .on("mouseover", (event) => {
                 // Dim other paths
                 paths.style("opacity", 0.2);
                 d3.select(event.currentTarget).style("opacity", 1);
