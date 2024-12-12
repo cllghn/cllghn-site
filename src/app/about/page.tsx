@@ -1,8 +1,59 @@
 import GaugeChart from '@/components/viz/gauges';
 import RadarChart from '@/components/viz/radar';
 import React from 'react';
+import { IconType } from 'react-icons';
 import { FaCode, FaCodeBranch, FaMountain, FaPalette, FaUtensils, FaGlobeAmericas, FaChalkboardTeacher, FaBicycle, FaGraduationCap, FaServer, FaImage, FaCloud, FaFileCode, FaJs, FaToolbox, FaVial, FaDocker, FaGithub, FaPython, FaNodeJs, FaDatabase } from "react-icons/fa";
 import { FaArrowsRotate, FaEllipsis, FaRobot } from 'react-icons/fa6';
+
+const makeTWBullet = (
+    text: string,
+    size: number,
+    IconComponent: IconType,
+    liTWCSS?: string,
+    iconTWCSS?: string
+) => {
+    return (
+        <li className={liTWCSS || 'flex space-x-2 text-start sm:items-center sm:text-left pb-2 sm:pb-0'}>
+            {IconComponent && <IconComponent size={size} className={iconTWCSS || 'mt-1 sm:mt-0'} />}&nbsp;
+            <span>{text}</span>
+        </li>
+    );
+};
+
+const interests = [
+    makeTWBullet('Reproducible quantitative research in Python and R.', 15, FaCodeBranch),
+    makeTWBullet('Building pretty things with JS, CSS, and HTML.', 15, FaPalette),
+    makeTWBullet('Open-source software (developing and using).', 15, FaCode),
+    makeTWBullet('Learning from others and sharing what I&apos;ve picked up.', 15, FaChalkboardTeacher),
+    makeTWBullet('Hiking, camping, and backpacking (usually in CA).', 15, FaMountain),
+    makeTWBullet('Spicy foods that melt my mouth.', 15, FaUtensils),
+    makeTWBullet('Traveling to experience and learn.', 15, FaGlobeAmericas),
+    makeTWBullet('Riding my bike around town with those I love.', 15, FaBicycle),
+];
+
+const feSkills = [
+    makeTWBullet('HTML and CSS (+Tailwind).', 15, FaFileCode),
+    makeTWBullet('JavaScript with the support of React and Next.js.', 15, FaJs),
+    makeTWBullet('NPM, Yarn, and Vite.', 15, FaToolbox),
+    makeTWBullet('Desing with Figma and build with component libraries (Material UI, Bootstrap).', 15, FaPalette),
+    makeTWBullet('Testing in Jest.', 15, FaVial),
+    makeTWBullet('And so much more!', 15, FaEllipsis),
+];
+
+const beSkills = [
+    makeTWBullet('Prefer working in Python, powered by Django and Flask.', 15, FaPython),
+    makeTWBullet('Can handle myself in Node.js + Express.js.', 15, FaNodeJs),
+    makeTWBullet('Worked primaraly with RDBMS (MSSQL, PostgreSQL, and SQLite).', 15, FaDatabase),
+    makeTWBullet('REST API user, documenter (Swagger), and builder (Express.js, Flask, Plumber).', 15, FaRobot),
+    makeTWBullet('And so much more!', 15, FaEllipsis),
+];
+
+const cloudSkills = [
+    makeTWBullet('Mostly AWS, sometimes Google Cloud Platform, rarely Azure.', 15, FaCloud),
+    makeTWBullet('Containarize with Docker.', 15, FaDocker),
+    makeTWBullet('CI/CD with GitHub Actions.', 15, FaArrowsRotate),
+    makeTWBullet('Working on AWS cert (slowly).', 15, FaGraduationCap)
+];
 
 export default function About() {
     return (
@@ -29,7 +80,8 @@ export default function About() {
                     </h2>
                     <div className='py-5'>
                         <ul className='list-none text-lg'>
-                            <li className='flex space-x-2 items-center'>
+                            {interests}
+                            {/* <li className='flex space-x-2 items-center'>
                                 <FaCodeBranch size={15} />&nbsp;<span>Reproducible quantitative research in Python and R.</span>
                             </li>
                             <li className='flex space-x-2 items-center'>
@@ -52,7 +104,7 @@ export default function About() {
                             </li>
                             <li className='flex space-x-2 items-center'>
                                 <FaBicycle size={15} />&nbsp;<span>Riding my bike around town with those I love.</span>
-                            </li>
+                            </li> */}
                         </ul>
                     </div>
                 </div>
@@ -131,24 +183,7 @@ export default function About() {
                                 <FaImage size={25} />&nbsp;<span>Front-End Development</span>
                             </h3>
                             <ul className='list-none text-lg sm:px-10 sm:py-2'>
-                                <li className='flex space-x-2 text-start sm:items-center sm:text-left pb-2 sm:pb-0'>
-                                    <FaFileCode size={15} className='mt-1 sm:mt-0' />&nbsp;<span>HTML and CSS (+Tailwind).</span>
-                                </li>
-                                <li className='flex space-x-2 sm:items-center sm:text-left pb-2 sm:pb-0'>
-                                    <FaJs size={15} className='mt-1 sm:mt-0' />&nbsp;<span>JavaScript with the support of React and Next.js.</span>
-                                </li>
-                                <li className='flex space-x-2 sm:items-center sm:text-left pb-2 sm:pb-0'>
-                                    <FaToolbox size={15} className='mt-1 sm:mt-0' />&nbsp;<span>NPM, Yarn, and Vite.</span>
-                                </li>
-                                <li className='flex space-x-2 sm:items-center sm:text-left pb-2 sm:pb-0'>
-                                    <FaPalette size={15} className='mt-1 sm:mt-0' />&nbsp;<span>Desing with Figma and build with component libraries (Material UI, Bootstrap).</span>
-                                </li>
-                                <li className='flex space-x-2 sm:items-center sm:text-left pb-2 sm:pb-0'>
-                                    <FaVial size={15} className='mt-1 sm:mt-0' />&nbsp;<span>Testing in Jest.</span>
-                                </li>
-                                <li className='flex space-x-2 sm:items-center sm:text-left pb-2 sm:pb-0'>
-                                    <FaEllipsis size={15} className='mt-1 sm:mt-0' />&nbsp;<span>And so much more!</span>
-                                </li>
+                                {feSkills}
                             </ul>
                         </div>
                         <div className='pb-5'>
@@ -156,21 +191,7 @@ export default function About() {
                                 <FaServer size={25} />&nbsp;<span>Back-End Development</span>
                             </h3>
                             <ul className='list-none text-lg sm:px-10 sm:py-2'>
-                                <li className='flex space-x-2 text-start sm:items-center sm:text-left pb-2 sm:pb-0'>
-                                    <FaPython size={15} className='mt-1 sm:mt-0' />&nbsp;<span>Prefer working in Python, powered by Django and Flask.</span>
-                                </li>
-                                <li className='flex space-x-2 text-start sm:items-center sm:text-left pb-2 sm:pb-0'>
-                                    <FaNodeJs size={15} className='mt-1 sm:mt-0' />&nbsp;<span>Can handle myself in Node.js + Express.js.</span>
-                                </li>
-                                <li className='flex space-x-2 text-start sm:items-center sm:text-left pb-2 sm:pb-0'>
-                                    <FaDatabase size={15} className='mt-1 sm:mt-0' />&nbsp;<span>Worked primaraly with RDBMS (MSSQL, PostgreSQL, and SQLite).</span>
-                                </li>
-                                <li className='flex space-x-2 text-start sm:items-center sm:text-left pb-2 sm:pb-0'>
-                                    <FaRobot size={15} className='mt-1 sm:mt-0' />&nbsp;<span>REST API user, documenter (Swagger), and builder (Express.js, Flask, Plumber).</span>
-                                </li>
-                                <li className='flex space-x-2 sm:items-center sm:text-left pb-2 sm:pb-0'>
-                                    <FaEllipsis size={15} className='mt-1 sm:mt-0' />&nbsp;<span>And so much more!</span>
-                                </li>
+                                {beSkills}
                             </ul>
                         </div>
                         <div className='pb-5'>
@@ -188,18 +209,7 @@ export default function About() {
                                 <FaCloud size={25} />&nbsp;<span>Cloud Platforms and Deployment</span>
                             </h3>
                             <ul className='list-none text-lg sm:px-10 sm:py-2'>
-                                <li className='flex space-x-2 text-start sm:items-center sm:text-left pb-2 sm:pb-0'>
-                                    <FaCloud size={15} className='mt-1 sm:mt-0' />&nbsp;<span>Mostly AWS, sometimes Google Cloud Platform, rarely Azure.</span>
-                                </li>
-                                <li className='flex space-x-2 text-start sm:items-center sm:text-left pb-2 sm:pb-0'>
-                                    <FaDocker size={15} className='mt-1 sm:mt-0' />&nbsp;<span>Containarize with Docker.</span>
-                                </li>
-                                <li className='flex space-x-2 text-start sm:items-center sm:text-left pb-2 sm:pb-0'>
-                                    <FaArrowsRotate size={15} className='mt-1 sm:mt-0' />&nbsp;<span>CI/CD with GitHub Actions.</span>
-                                </li>
-                                <li className='flex space-x-2 text-start sm:items-center sm:text-left pb-2 sm:pb-0'>
-                                    <FaGraduationCap size={15} className='mt-1 sm:mt-0' />&nbsp;<span>Working on AWS cert (slowly).</span>
-                                </li>
+                                {cloudSkills}
                             </ul>
                         </div>
                     </div>
