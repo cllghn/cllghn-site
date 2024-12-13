@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "Chris Callaghan",
   description: "Hello! Welcome to my personal website.",
   publisher: "Chris Callaghan",
-  icons: 'adventure.ico',
+  icons: 'Balam_1.svg',
 };
 
 export default function RootLayout({

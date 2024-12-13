@@ -29,7 +29,7 @@ export default function Projects() {
     const sortedPosts = filteredPosts.sort((a, b) => new Date(b.datetime).getTime() - new Date(a.datetime).getTime());
 
     return (
-        <main className="container px-44 min-w-full pt-36 pb-52">
+        <main className="container px-16 md:px-44 min-w-full pt-36 pb-52">
             <div className="flex flex-col pb-5">
                 <h2 className='text-6xl fancy-header row text-center pb-5'>
                     PROJECTS
@@ -39,7 +39,7 @@ export default function Projects() {
                 </p>
             </div>
             <div className="flex">
-                <div className='flex flex-col md:flex-row py-5 space-x-2'>
+                <div className='flex flex-row py-5 space-x-2'>
                     <div className="basis-2/6 pb-5">
                         <span className='justify-center'>
                             <h2 className='text-left text-2xl regular-header pb-5'>
