@@ -24,7 +24,7 @@ const interests = [
     makeTWBullet('Reproducible quantitative research in Python and R.', 15, FaCodeBranch),
     makeTWBullet('Building pretty things with JS, CSS, and HTML.', 15, FaPalette),
     makeTWBullet('Open-source software (developing and using).', 15, FaCode),
-    makeTWBullet('Learning from others and sharing what I&apos;ve picked up.', 15, FaChalkboardTeacher),
+    makeTWBullet("Learning from others and sharing what I've picked up.", 15, FaChalkboardTeacher),
     makeTWBullet('Hiking, camping, and backpacking (usually in CA).', 15, FaMountain),
     makeTWBullet('Spicy foods that melt my mouth.', 15, FaUtensils),
     makeTWBullet('Traveling to experience and learn.', 15, FaGlobeAmericas),
@@ -57,7 +57,7 @@ const cloudSkills = [
 
 export default function About() {
     return (
-        <main className="container px-44 min-w-full pt-36 pb-52">
+        <main className="container px-16 md:px-44 min-w-full pt-36 pb-52">
             <div className="flex flex-col pb-20">
                 <h2 className='text-6xl fancy-header row text-center pb-5'>
                     ABOUT ME
@@ -72,8 +72,7 @@ export default function About() {
                     I&apos;ve been lucky enough to spend most of my adult life in the central coast of California, though I am native to Mexico. My husband and I currently live in Sacramento with our opinionated cat. When we can get away, we often backpack around the Sierra Nevada.
                 </p>
             </div>
-
-            <div className="flex lg:flex-row md:flex-col sm:flex-col gap-x-2 pb-20">
+            <div className="flex flex-col lg:flex-row gap-x-2 pb-20">
                 <div className="basis-1/2">
                     <h2 className='text-center text-6xl fancy-header'>
                         INTERESTS
@@ -81,35 +80,11 @@ export default function About() {
                     <div className='py-5'>
                         <ul className='list-none text-lg'>
                             {interests}
-                            {/* <li className='flex space-x-2 items-center'>
-                                <FaCodeBranch size={15} />&nbsp;<span>Reproducible quantitative research in Python and R.</span>
-                            </li>
-                            <li className='flex space-x-2 items-center'>
-                                <FaPalette size={15} />&nbsp;<span>Building pretty things with JS, CSS, and HTML.</span>
-                            </li>
-                            <li className='flex space-x-2 items-center'>
-                                <FaCode size={15} />&nbsp;<span>Open-source software (developing and using).</span>
-                            </li>
-                            <li className='flex space-x-2 items-center'>
-                                <FaChalkboardTeacher size={15} />&nbsp;<span>Learning from others and sharing what I&apos;ve picked up.</span>
-                            </li>
-                            <li className='flex space-x-2 items-center'>
-                                <FaMountain size={15} />&nbsp;<span>Hiking, camping, and backpacking (usually in CA).</span>
-                            </li>
-                            <li className='flex space-x-2 items-center'>
-                                <FaUtensils size={15} />&nbsp;<span>Spicy foods that melt my mouth.</span>
-                            </li>
-                            <li className='flex space-x-2 items-center'>
-                                <FaGlobeAmericas size={15} />&nbsp;<span>Traveling to experience and learn.</span>
-                            </li>
-                            <li className='flex space-x-2 items-center'>
-                                <FaBicycle size={15} />&nbsp;<span>Riding my bike around town with those I love.</span>
-                            </li> */}
                         </ul>
                     </div>
                 </div>
                 <div className="basis-1/2">
-                    <h2 className='text-center text-6xl fancy-header'>
+                    <h2 className='text-center text-6xl fancy-header pt-20 lg:pt-0'>
                         EDUCATION
                     </h2>
                     <div className='flex py-5'>
@@ -140,7 +115,8 @@ export default function About() {
                     </h2>
                     <a href="#footnote-1">[1]</a>
                 </span>
-                <div className='flex pb-10 flex-col lg:flex-row space-x-2'>
+
+                <div className='flex pb-10 flex-col xl:flex-row space-x-2'>
                     <div className="flex basis-1/5 pb-5">
                         <span className='flex justify-center'>
                             <h2 className='text-left text-2xl regular-header'>
@@ -148,16 +124,16 @@ export default function About() {
                             </h2>
                         </span>
                     </div>
-                    <div className='flex flex-col md:flex-row basis-2/5 pb-5 space-x-4'>
+                    <div className='flex flex-col md:flex-row basis-2/5 pb-5 space-x-4 self-center'>
                         <GaugeChart value={80} label={'JS'} fillColor={"#1192e8"} />
                         <GaugeChart value={90} label={'Python'} fillColor={"#fa4d56"} />
                     </div>
-                    <div className='flex flex-col md:flex-row basis-2/5 pb-5 space-x-4'>
+                    <div className='flex flex-col md:flex-row basis-2/5 pb-5 space-x-4 self-center'>
                         <GaugeChart value={95} label={'R'} fillColor={"#002d9c"} />
                         <GaugeChart value={85} label={'SQL'} fillColor={"#009d9a"} />
                     </div>
                 </div>
-                <div className='flex pb-10 sm:flex-col md:flex-col lg:flex-row space-x-2'>
+                <div className='flex pb-10 flex-col xl:flex-row space-x-2'>
                     <div className="flex basis-1/5 pb-5">
                         <span className='flex justify-center'>
                             <h2 className='text-left text-2xl regular-header'>
@@ -165,11 +141,11 @@ export default function About() {
                             </h2>
                         </span>
                     </div>
-                    <div className='basis-4/5 pb-5'>
+                    <div className='flex basis-4/5 pb-5'>
                         <RadarChart />
                     </div>
                 </div>
-                <div className='flex py-b sm:flex-col md:flex-col lg:flex-row space-x-2'>
+                <div className='flex pb-10 flex-col xl:flex-row space-x-2'>
                     <div className="flex basis-1/5 pb-5">
                         <span className='flex justify-center'>
                             <h2 className='text-left text-2xl regular-header'>
@@ -179,7 +155,7 @@ export default function About() {
                     </div>
                     <div className='basis-4/5 pb-5'>
                         <div className='pb-5'>
-                            <h3 className='flex text-left text-xl regular-header space-x-2 pb-2 sm:pb-0'>
+                            <h3 className='flex text-left text-xl regular-header space-x-2 pb-2 md:pb-0'>
                                 <FaImage size={25} />&nbsp;<span>Front-End Development</span>
                             </h3>
                             <ul className='list-none text-lg sm:px-10 sm:py-2'>
@@ -187,7 +163,7 @@ export default function About() {
                             </ul>
                         </div>
                         <div className='pb-5'>
-                            <h3 className='flex text-left text-xl regular-header space-x-2'>
+                            <h3 className='flex text-left text-xl regular-header space-x-2 pb-2 md:pb-0'>
                                 <FaServer size={25} />&nbsp;<span>Back-End Development</span>
                             </h3>
                             <ul className='list-none text-lg sm:px-10 sm:py-2'>
@@ -195,17 +171,17 @@ export default function About() {
                             </ul>
                         </div>
                         <div className='pb-5'>
-                            <h3 className='flex text-left text-xl regular-header space-x-2'>
+                            <h3 className='flex text-left text-xl regular-header space-x-2 pb-2 sm:pb-0'>
                                 <FaCodeBranch size={25} />&nbsp;<span>Version Control</span>
                             </h3>
                             <ul className='list-none text-lg sm:px-10 sm:py-2'>
-                                <li className='flex space-x-2 text-start  sm:text-left pb-2 sm:pb-0'>
+                                <li className='flex space-x-2 text-start  sm:text-left pb-2 md:pb-0'>
                                     <FaGithub size={25} className='mt-1 sm:mt-0' />&nbsp;<span>When it comes to version control, I am all in on Git. I am less enamored with the idea of hosting my code on GitHub, though they make it all too easy. Check out my public facing profile <a href='https://github.com/cllghn' target='_blank'>here</a>.</span>
                                 </li>
                             </ul>
                         </div>
                         <div className='pb-5'>
-                            <h3 className='flex text-left text-xl regular-header space-x-2'>
+                            <h3 className='flex text-left text-xl regular-header space-x-2 pb-2 md:pb-0'>
                                 <FaCloud size={25} />&nbsp;<span>Cloud Platforms and Deployment</span>
                             </h3>
                             <ul className='list-none text-lg sm:px-10 sm:py-2'>
