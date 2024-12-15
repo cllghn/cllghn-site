@@ -30,7 +30,7 @@ export const TruncateText: React.FC<TruncateTextProps> = ({ text, maxLength }) =
             {text.length > maxLength && (
                 <a
                     onClick={toggleText}
-                    className="text-[#3b3b3b] text-sm"
+                    className="text-[#3b3b3b] text-sm a-body"
                 >
                     {isExpanded ? "Show Less" : "Show More"}
                 </a>
@@ -39,3 +39,4 @@ export const TruncateText: React.FC<TruncateTextProps> = ({ text, maxLength }) =
         </div>
     );
 };
+

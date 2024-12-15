@@ -127,7 +127,7 @@ export default function Projects() {
                                                 <div className="relative flex items-center gap-x-4 pb-2">
                                                     <div className="text-sm/6">
                                                         <p className="font-semibold text-[#3b3b3b]">
-                                                            <a href={post.more.href}>
+                                                            <a href={post.more.href} className='a-body'>
                                                                 <span className="absolute inset-0" />
                                                                 {post.more.text} &rarr;
                                                             </a>
