@@ -69,5 +69,21 @@
             "href": "https://nps.edu/-/gray-networks-nps-uses-social-network-analysis-to-cast-a-bright-light-on-maritime-awareness",
             "text": "Read more here"
         }
+    },
+    {
+        "id": 6,
+        "title": "SQL 101",
+        "description": "I built a small tutorial on how to use SQL in support of our corrections analysts. This is a simple HTML document with some styling provided by CSS, Bootstrap, and some minimal JavaScript. The actual lessons are hosted as individual R .qmd files in the docs/presentation subdirectory. ",
+        "imageUrl": "/sql101.png",
+        "datetime": "2024-08-15",
+        "category": [
+            "SQL",
+            "JavaScript",
+            "R"
+        ],
+        "more": {
+            "href": "https://cllghn.github.io/sql101/",
+            "text": "Go to the page"
+        }
     }
 ]
