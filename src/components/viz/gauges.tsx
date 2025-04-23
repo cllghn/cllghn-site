@@ -73,7 +73,7 @@ const GaugeChart = ({
     foreground
       .transition()
       .duration(1000) // 1 second animation
-      .attrTween('d', function (d) {
+      .attrTween('d', function () {
         const interpolate = d3.interpolate(0, currentValue - min);
         return function (t) {
           const interpolatedValue = interpolate(t);
