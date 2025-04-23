@@ -11,7 +11,7 @@ export default function Home() {
           <section className="hero container max-w-screen-lg mx-auto pb-10">
             <div className="relative w-full max-w-xs mx-auto">
               <Image
-                className="mx-auto rounded-full"
+                className="mx-auto rounded-full border-2 border-[#fffff7] shadow-lg"
                 src="/ccallaghan-headshot.jpg"
                 alt="screenshot"
                 width={500}

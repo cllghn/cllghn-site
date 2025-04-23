@@ -85,5 +85,20 @@
             "href": "https://cllghn.github.io/sql101/",
             "text": "Go to the page"
         }
+    },
+    {
+        "id": 7,
+        "title": "Texas Water Network Explorer",
+        "description": "I built a tool to help equip decision makers and the public with the information they need to navigate the complex water sector in Texas. This was done in partnership with the Texas Water Foundation and the Institute for Homeland Security at Sam Houston State University. The code was cleaned in Python using a Marimo notebook for version control and documentation. The frontend was built with NextJS and Cytoscape.js.",
+        "imageUrl": "/twne.png",
+        "datetime": "2025-04-23",
+        "category": [
+            "JavaScript",
+            "Python"
+        ],
+        "more": {
+            "href": "https://shsu-twn.vercel.app/",
+            "text": "Go to the page"
+        }
     }
 ]
