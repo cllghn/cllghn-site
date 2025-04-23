@@ -1,4 +1,4 @@
-import GaugeChart from '@/components/viz/gauges';
+import ResponsiveGaugeCharts from '@/components/viz/gauges';
 import RadarChart from '@/components/viz/radar';
 import React from 'react';
 import { IconType } from 'react-icons';
@@ -124,13 +124,14 @@ export default function About() {
                             </h2>
                         </span>
                     </div>
-                    <div className='flex flex-col md:flex-row basis-2/5 pb-5 space-x-4 self-center'>
+                    {/* <div className='flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0 p-4'>
                         <GaugeChart value={80} label={'JS'} fillColor={"#1192e8"} />
                         <GaugeChart value={90} label={'Python'} fillColor={"#fa4d56"} />
-                    </div>
-                    <div className='flex flex-col md:flex-row basis-2/5 pb-5 space-x-4 self-center'>
                         <GaugeChart value={95} label={'R'} fillColor={"#002d9c"} />
                         <GaugeChart value={85} label={'SQL'} fillColor={"#009d9a"} />
+                    </div> */}
+                    <div className="flex justify-center">
+                        <ResponsiveGaugeCharts />   
                     </div>
                 </div>
                 <div className='flex pb-10 flex-col xl:flex-row space-x-2'>
@@ -141,7 +142,7 @@ export default function About() {
                             </h2>
                         </span>
                     </div>
-                    <div className='flex basis-4/5 pb-5'>
+                    <div className='flex pb-5'>
                         <RadarChart />
                     </div>
                 </div>
