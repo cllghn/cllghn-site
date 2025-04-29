@@ -22,11 +22,11 @@ export default function Home() {
         </div>
         <hr className="block md:hidden my-10 bg-[#3b3b3b] h-0.5 w-3/4 self-center" />
         <div className="basis-3/5 pl-4 md:py-10">
-          <h2 className='hidden sm:block text-5xl md:text-6xl py-10 fancy-header text-center'>
-            BACKGROUND
+          <h2 className='hidden sm:block text-5xl md:text-6xl py-10 fancy-header text-left'>
+            Hello there! 👋
           </h2>
           <p className='text-lg pb-10'>
-            I’m a data scientist and budding software engineer dedicated to advancing criminal justice research. My work focuses on creating analytics and software solutions that empower non-technical audiences to make informed policy decisions. When I’m not coding or squinting at a computer screen, I enjoy exploring the outdoors through backpacking or finding balance on my yoga mat. I live in California with my husband and our cat.
+            My name is Chris and I’m a data scientist and budding software engineer dedicated to advancing social science research. My work focuses on creating analytics and software solutions that empower non-technical audiences to make informed policy decisions. When I’m not coding or squinting at a computer screen, I enjoy exploring the outdoors through backpacking or finding balance on my yoga mat. I live in California with my husband and our cat.
           </p>
           <div className='text-sm text-right'>
             <a href='/about' className='a-body'>Learn more about me... &rarr;</a>
