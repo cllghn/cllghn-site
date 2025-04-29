@@ -1,6 +1,6 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/7a9dfb3d-8bd9-4d0e-9b3e-ff7ce580a70e/deploy-status)](https://app.netlify.com/sites/cllghn/deploys)
+# cllghn.me
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+My personal website, to play and tinker with. It was built [Next.js](https://nextjs.org) and Tailwind. There is also a wee bit of D3; however, I will probably remove that in the future and switch over to Highcharts for accessibility purposes. 
 
 ## Getting Started
 
