@@ -39,14 +39,14 @@ export default function Projects() {
                 </p>
             </div>
             <div className="flex">
-                <div className='flex flex-row py-5 space-x-2'>
+                <div className='flex sm:flex-row flex-col py-5 space-x-2'>
                     <div className="basis-2/6 pb-5">
                         <span className='justify-center'>
                             <h2 className='text-left text-2xl regular-header pb-5'>
                                 Filters
                             </h2>
                         </span>
-                        <div className='space-y-2'>
+                        <div className='space-y-2 flex flex-col'>
                             <h3 className='text-left text-lg regular-header'>
                                 By Language
                             </h3>
@@ -91,6 +91,9 @@ export default function Projects() {
                                 <Label>SQL</Label>
                             </Field>
                         </div>
+                    </div>
+                    <div>
+                        <hr className="block sm:hidden my-10 bg-[#3b3b3b] h-0.5 w-3/4 self-center" />
                     </div>
                     <div className="flex basis-4/6 pb-5">
                         <div className="mx-auto max-w-2xl lg:max-w-4xl">

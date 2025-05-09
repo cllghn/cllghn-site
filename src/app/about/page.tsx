@@ -142,8 +142,11 @@ export default function About() {
                             </h2>
                         </span>
                     </div>
-                    <div className='flex pb-5'>
+                    <div className='pb-5 hidden sm:flex'>
                         <RadarChart />
+                    </div>
+                    <div className='pb-5 flex sm:hidden text-lg'>
+                        <span>🏗️ Working of a mobile version of this chart. 🏗️</span>
                     </div>
                 </div>
                 <div className='flex pb-10 flex-col xl:flex-row space-x-2'>

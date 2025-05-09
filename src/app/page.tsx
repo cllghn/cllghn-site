@@ -21,7 +21,7 @@ export default function Home() {
           </section>
         </div>
         <hr className="block md:hidden my-10 bg-[#3b3b3b] h-0.5 w-3/4 self-center" />
-        <div className="basis-3/5 pl-4 md:py-10">
+        <div className="basis-3/5 sm:pl-4 md:py-10">
           <h2 className='hidden sm:block text-5xl md:text-6xl py-10 fancy-header text-left'>
             Hello there! 👋
           </h2>
